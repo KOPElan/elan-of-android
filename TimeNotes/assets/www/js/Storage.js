@@ -22,7 +22,7 @@ function populateDB(tx) {
 // Query the database
 //
 function queryDB(tx) {
-    tx.executeSql('SELECT * FROM TimeNotes', [], querySuccess, errorCB);
+    tx.executeSql('SELECT top 35 * FROM TimeNotes order by id desc LIMIT 35', [], querySuccess, errorCB);
 }
 
 // Query the success callback
@@ -33,7 +33,7 @@ function querySuccess(tx, results) {
     for (var i = 0; i < len; i++) {
         console.log("Row = " + i + " ID = " + results.rows.item(i).ID + " Data =  " + results.rows.item(i).Content);
         //alert("Row = " + i + " ID = " + results.rows.item(i).ID + " Data =  " + results.rows.item(i).Content);
-        $("#notes").prepend(results.rows.item(i).Content + "<br/>" + results.rows.item(i).AddDate + results.rows.item(i).AddTime+ "<hr>");
+        addNote(results.rows.item(i).Content ,results.rows.item(i).AddTime,results.rows.item(i).AddDate);
     }
 }
 
@@ -57,7 +57,7 @@ function Insert(content) {
         var adddate = new Date().toLocaleDateString();
         var addtime = new Date().toLocaleTimeString();
         tx.executeSql("INSERT INTO TimeNotes (ID, Content,AddDate,AddTime) values(?,?,?,?)", [id, content, adddate, addtime], null, null);
-        $("#notes").prepend(content + "<br/>" + adddate + addtime + "<hr>");
+        addNote(content, addtime, adddate);
     });
 }
 
@@ -72,4 +72,8 @@ function Select() {
              alert("error");
          });
     });
+}
+
+function addNote(content,addtime,adddate) {
+    $("#notes").prepend("<div class='notelist'><div class='notetext'>" + content + "</div><div class='notedate'>" + adddate + "   " + addtime + "</div><hr/><div>");
 }

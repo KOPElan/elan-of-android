@@ -44,13 +44,7 @@ var app = {
 
         //listeningElement.setAttribute('style', 'display:none;');
         //receivedElement.setAttribute('style', 'display:block;');
-        connectDB();
-        loadAllNotes(db);
         console.log('Received Event: ' + id);
     }
 
 };
-
-
-
-
