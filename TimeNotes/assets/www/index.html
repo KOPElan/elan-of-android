@@ -28,7 +28,22 @@
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.calendar-widget.js"></script>
     <script src="jquery.mobile/jquery.mobile-1.3.0.min.js"></script>
+    <script src="js/Storage.js"></script>
     <title>时光笔记</title>
+    <script>
+
+        $(function () {
+            $("#savenote").click(function () {
+                if ($("#note_content").val() != "") {
+                    Insert($("#note_content").val());
+                    $("#click_save").click();
+                }
+                else
+                    return false;
+            });
+        });
+
+    </script>
 </head>
 <body>
     <!--<div class="app">
@@ -40,7 +55,7 @@
     <!-- Home -->
     <div data-role="page" id="Home">
         <div data-theme="b" data-role="header" data-position="fixed">
-            <a data-role="button" href="#AddNote" data-icon="plus" data-iconpos="left" data-transition="none"
+            <a data-role="button" href="#AddNote" data-icon="plus" data-iconpos="left" data-transition="slide"
                 class="ui-btn-left">新建 </a>
             <h3>时光笔记 </h3>
             <a href="#MainMenu" data-rel="popup" data-transition="slideup" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="b" data-iconshadow="false" data-inline="true">菜单</a>
@@ -60,7 +75,9 @@
         </div>
 
         <div data-role="content" id="notes">
-            
+            <span>
+
+            </span>
         </div>
 
         <div data-theme="b" data-role="footer" data-position="fixed" data-mini="true">
@@ -82,7 +99,7 @@
     <!-- AddNote-->
     <div data-role="page" id="AddNote">
         <div data-theme="b" data-role="header" data-position="fixed">
-            <a data-role="button" data-transition="none" data-theme="b" href="#Home"
+            <a data-role="button" data-transition="slide" data-theme="b" href="#Home"
                 data-icon="back" data-iconpos="left" class="ui-btn-left">返回 </a>
             <h3>时光笔记 </h3>
         </div>
@@ -91,10 +108,11 @@
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="textarea1">新建笔记 </label>
-                        <textarea name="" id="textarea1" placeholder="" style="height: 8em;"></textarea>
+                        <textarea name="" id="note_content" placeholder="" style="height: 8em;"></textarea>
                     </fieldset>
                 </div>
-                <a data-role="button" href="#Home">保存 </a>
+                <a href="#Home" id="click_save"></a>
+                <a data-role="button" id="savenote">保存 </a>
             </form>
         </div>
         <div data-theme="b" data-role="footer" data-position="fixed">
@@ -150,7 +168,7 @@
     <script type="text/javascript" src="cordova-2.5.0.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        app.initialize();
+        //app.initialize();
     </script>
 </body>
 </html>

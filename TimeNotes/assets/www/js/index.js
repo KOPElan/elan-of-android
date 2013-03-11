@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+//var db;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -43,26 +44,13 @@ var app = {
 
         //listeningElement.setAttribute('style', 'display:none;');
         //receivedElement.setAttribute('style', 'display:block;');
-
-        var db = window.openDatabase("TimeNotes", "1.0", "TimeNotes DB", 1000000);
-        //db.transaction(populateDB, errorCB, successCB);
-        db.executeSql('CREATE TABLE IF NOT EXISTS Notes (id unique, content,date)');
-
+        connectDB();
+        loadAllNotes(db);
         console.log('Received Event: ' + id);
     }
 
 };
 
-function querySuccess(tx, results) {
-    var len = results.rows.length;
-    //console.log("DEMO table: " + len + " rows found.");
-    for (var i = 0; i < len; i++) {
-        console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
-    }
-}
 
-function errorCB(err) {
-    alert("Error processing SQL: " + err.code);
-}
 
 

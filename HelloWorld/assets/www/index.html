@@ -38,6 +38,57 @@ under the License.
 				text-align: center;
 			}
 		</style>
+		<script>
+		    // Wait for Cordova to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Populate the database 
+        //
+        function populateDB(tx) {
+            tx.executeSql('DROP TABLE IF EXISTS DEMO');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+            tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
+            tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
+        }
+
+        // Query the database
+        //
+        function queryDB(tx) {
+            tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+        }
+
+        // Query the success callback
+        //
+        function querySuccess(tx, results) {
+            var len = results.rows.length;
+            console.log("DEMO table: " + len + " rows found.");
+            for (var i = 0; i < len; i++) {
+                console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+                alert("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+            }
+        }
+
+        // Transaction error callback
+        //
+        function errorCB(err) {
+            console.log("Error processing SQL: " + err.code);
+        }
+
+        // Transaction success callback
+        //
+        function successCB() {
+            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            db.transaction(queryDB, errorCB);
+        }
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            db.transaction(populateDB, errorCB, successCB);
+        }
+		</script>
 	</head>
 	<body>
 		<script type="text/javascript" src="cordova-2.5.0.js"></script>
@@ -56,7 +107,7 @@ under the License.
 			<div data-theme="b" data-role="header">
 				<a data-role="button" href="#AddNote" data-icon="plus" data-iconpos="left" data-transition="slidefade"
 				class="ui-btn-left"> 新建 </a>
-				<h3> 时光笔记 </h3>
+				<h3> Hello World</h3>
 				<a href="#MainMenu" data-rel="popup" data-transition="slideup" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="b" data-iconshadow="false" data-inline="true">Bars</a>
 				<div data-role="popup" id="MainMenu" data-theme="d">
 					<ul data-role="listview" data-inset="true" style="min-width:200px;" data-theme="d">
@@ -64,7 +115,7 @@ under the License.
 							<a href="#">View details</a>
 						</li>
 						<li>
-							<a href="#">Edit</a>
+							<a href="#" onclick="javascript:alert('tishi!!')">Edit</a>
 						</li>
 						<li>
 							<a href="#">Disable</a>
@@ -91,7 +142,7 @@ under the License.
 							<a href="#Home" data-transition="slidefade" data-theme="" data-icon="star"> 事件 </a>
 						</li>
 						<li>
-							<a href="#page1" data-transition="slidefade" data-theme="" data-icon="arrow-r"> 未来 </a>
+							<a href="#page1" data-transition="slidefade" data-theme="" data-icon="arrow-r"> 设置 </a>
 						</li>
 					</ul>
 				</div>
@@ -102,7 +153,7 @@ under the License.
 			<div data-theme="b" data-role="header">
 				<a data-role="button" data-transition="slidefade" data-theme="b" href="#Home"
 				data-icon="back" data-iconpos="left" class="ui-btn-left"> 返回 </a>
-				<h3> 时光笔记 </h3>
+				<h3> Hello World</h3>
 			</div>
 			<div data-role="content">
 				<form action="">
@@ -125,7 +176,7 @@ under the License.
 			<div data-theme="b" data-role="header">
 				<a data-role="button" data-transition="slidefade" href="#Home" data-icon="back"
 				data-iconpos="left" class="ui-btn-left"> 返回 </a>
-				<h3> 时光笔记 </h3>
+				<h3> Hello World</h3>
 			</div>
 			<div data-role="content">
 				<div data-role="collapsible" data-inset="false" data-theme="c" data-content-theme="d" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u">
