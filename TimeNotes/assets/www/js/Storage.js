@@ -22,7 +22,7 @@ function populateDB(tx) {
 // Query the database
 //
 function queryDB(tx) {
-    tx.executeSql('SELECT top 35 * FROM TimeNotes order by id desc LIMIT 35', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM TimeNotes order by id desc LIMIT 35', [], querySuccess, errorCB);
 }
 
 // Query the success callback
