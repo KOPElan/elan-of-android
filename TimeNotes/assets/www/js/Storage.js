@@ -15,14 +15,12 @@ function connectDB(){
 function populateDB(tx) {
     //tx.executeSql('DROP TABLE IF EXISTS TimeNotes');
     tx.executeSql('CREATE TABLE IF NOT EXISTS TimeNotes (ID unique, Content text, AddDate text, AddTime text)');
-    //tx.executeSql('INSERT INTO TimeNotes (id, data) VALUES (1, "First row")');
-    //tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
 }
 
 // Query the database
 //
 function queryDB(tx) {
-    tx.executeSql('SELECT * FROM TimeNotes order by id desc LIMIT 35', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM TimeNotes order by id asc LIMIT 35', [], querySuccess, errorCB);
 }
 
 // Query the success callback

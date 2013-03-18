@@ -43,8 +43,6 @@
                     return false;
             });
 
-            //$("#searchquery").bind("change", search);
-
         });
 
         //选择日期
@@ -52,19 +50,19 @@
             var datetime = $("#mydate").val();
             var obj = $("#datesearch");
             $(obj).html("");
-            if (datetime!="") {
-                var stime = Date.parse(datetime)-1;
+            if (datetime != "") {
+                var stime = Date.parse(datetime) - 1;
                 var etime = Date.parse(datetime) + 86400000;
                 Select("where ID>" + stime + " and ID<" + etime + " order by ID asc ", obj);
-            }            
+            }
         }
 
+        //检索
         function search() {
             var query = $("#searchquery").val();
             var obj = $("#querysearch");
             $(obj).html("");
-            if(query!="")
-            {
+            if (query != "") {
                 Select("where Content like \"%" + query + "%\"  order by ID asc", obj);
             }
         }
@@ -85,7 +83,7 @@
             <div data-role="popup" id="MainMenu" data-theme="d">
                 <ul data-role="listview" data-inset="true" style="min-width: 200px;" data-theme="d">
                     <li>
-                        <a href="#">关于</a>
+                        <a href="#About" data-transition="slide">关于</a>
                     </li>
                     <li>
                         <a href="#" onclick="javascript:navigator.app.exitApp();">退出</a>
@@ -95,7 +93,6 @@
         </div>
 
         <div data-role="content" id="notes">
-            
         </div>
 
         <div data-theme="b" data-role="footer" data-position="fixed" data-mini="true">
@@ -193,6 +190,48 @@
             <br />
             <div id="querysearch">
             </div>
+        </div>
+        <div data-theme="b" data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li>
+                        <a href="#DateSearch" data-transition="slide" data-theme="" data-icon="grid">日历 </a>
+                    </li>
+                    <li>
+                        <a href="#Home" data-transition="slide" data-theme="" data-icon="star">笔记 </a>
+                    </li>
+                    <li>
+                        <a href="#Search" data-transition="slide" data-theme="" data-icon="search">检索 </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 关于-->
+    <div data-role="page" id="About">
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <a data-role="button" data-transition="slide" href="#Home" data-icon="back"
+                data-iconpos="left" class="ui-btn-left">返回 </a>
+            <h3>时光笔记-关于 </h3>
+        </div>
+        <div data-role="content" style="font-size:1.3em;">
+            <p>
+                KOPElan
+            </p>
+            <p>
+                <a href="http://elanblog.sinaapp.com/" target="_blank" data-transition="fade">博客
+            </a>
+            </p>
+            <p>
+                2013-3-18
+            </p>
+            <p>
+                <a href="https://github.com/KOPElan/elan-of-android" target="_blank" data-transition="fade">源代码（GitHub）
+            </a>
+            </p>
+            <p>
+                声明：所用图片等资源均来自网络，非原创。
+            </p>
         </div>
         <div data-theme="b" data-role="footer" data-position="fixed">
             <div data-role="navbar" data-iconpos="top">
