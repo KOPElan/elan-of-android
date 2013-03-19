@@ -115,16 +115,27 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 .notelist {
-
+    background-color:#F3F3F3;
+            border:1px #DDE6ED solid;
+            margin-bottom:5px;
+            padding:5px;
 }
 
 .notetext {
     font-size:1.3em;
+    word-break: break-all;
+    padding-left:1em;
+    line-height:1.5em;
+    margin-top:5px;
 }
 
 .notedate {
-    margin-top:5px;
     color:#a5a4a4;
+    padding-left:1em;
+
+    border-left:5px #67A6D2 solid;
+    margin-left:-5px;
+    line-height:20px;
 }
 hr {
     color:#a5a4a4;

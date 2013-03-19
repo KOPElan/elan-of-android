@@ -75,7 +75,7 @@
 </head>
 <body>
     <div data-role="page" id="Home">
-        <div data-theme="b" data-role="header" data-position="fixed">
+        <div data-theme="b" data-role="header" data-position="fixed" data-tap-toggle="false">
             <a data-role="button" href="#AddNote" data-icon="plus" data-iconpos="left" data-transition="slide"
                 class="ui-btn-left">新建 </a>
             <h3>时光笔记 </h3>
@@ -95,7 +95,7 @@
         <div data-role="content" id="notes">
         </div>
 
-        <div data-theme="b" data-role="footer" data-position="fixed" data-mini="true">
+        <div data-theme="b" data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li>
@@ -113,12 +113,12 @@
     </div>
     <!-- AddNote-->
     <div data-role="page" id="AddNote">
-        <div data-theme="b" data-role="header" data-position="fixed">
-            <a data-role="button" data-transition="slide" data-theme="b" href="#Home"
+        <div data-theme="b" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a data-role="button" data-transition="slide" data-theme="b" href="#Home" data-rel="back"
                 data-icon="back" data-iconpos="left" class="ui-btn-left">返回 </a>
             <h3>时光笔记 </h3>
         </div>
-        <div data-role="content">
+        <div data-role="content" >
             <form action="">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
@@ -130,7 +130,7 @@
                 <a data-role="button" id="savenote">保存 </a>
             </form>
         </div>
-        <div data-theme="b" data-role="footer" data-position="fixed">
+        <div data-theme="b" data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li>
@@ -149,8 +149,8 @@
 
     <!-- 日历 -->
     <div data-role="page" id="DateSearch">
-        <div data-theme="b" data-role="header" data-position="fixed">
-            <a data-role="button" data-transition="slide" href="#Home" data-icon="back"
+        <div data-theme="b" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a data-role="button" data-transition="slide" href="#Home" data-icon="back" data-rel="back"
                 data-iconpos="left" class="ui-btn-left">返回 </a>
             <h3>时光笔记 </h3>
         </div>
@@ -161,7 +161,7 @@
             <div id="datesearch">
             </div>
         </div>
-        <div data-theme="b" data-role="footer" data-position="fixed">
+        <div data-theme="b" data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li>
@@ -179,8 +179,8 @@
     </div>
     <!-- 检索-->
     <div data-role="page" id="Search">
-        <div data-theme="b" data-role="header" data-position="fixed">
-            <a data-role="button" data-transition="slide" href="#Home" data-icon="back"
+        <div data-theme="b" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a data-role="button" data-transition="slide" href="#Home" data-icon="back" data-rel="back"
                 data-iconpos="left" class="ui-btn-left">返回 </a>
             <h3>时光笔记 </h3>
         </div>
@@ -191,7 +191,7 @@
             <div id="querysearch">
             </div>
         </div>
-        <div data-theme="b" data-role="footer" data-position="fixed">
+        <div data-theme="b" data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li>
@@ -209,8 +209,8 @@
     </div>
     <!-- 关于-->
     <div data-role="page" id="About">
-        <div data-theme="b" data-role="header" data-position="fixed">
-            <a data-role="button" data-transition="slide" href="#Home" data-icon="back"
+        <div data-theme="b" data-role="header" data-position="fixed" data-tap-toggle="false">
+            <a data-role="button" data-transition="slide" href="#Home" data-icon="back" data-rel="back"
                 data-iconpos="left" class="ui-btn-left">返回 </a>
             <h3>时光笔记-关于 </h3>
         </div>
@@ -219,21 +219,21 @@
                 KOPElan
             </p>
             <p>
-                <a href="http://elanblog.sinaapp.com/" target="_blank" data-transition="fade">博客
+                <a href="javascript:navigator.app.loadUrl('http://elanblog.sinaapp.com/',{ openExternal:true });">博客
             </a>
             </p>
             <p>
                 2013-3-18
             </p>
             <p>
-                <a href="https://github.com/KOPElan/elan-of-android" target="_blank" data-transition="fade">源代码（GitHub）
+                <a href="javascript:navigator.app.loadUrl('https://github.com/KOPElan/elan-of-android',{ openExternal:true });">源代码（GitHub）
             </a>
             </p>
             <p>
-                声明：所用图片等资源均来自网络，非原创。
+                声明：所使用图片等资源均来自网络，非原创。
             </p>
         </div>
-        <div data-theme="b" data-role="footer" data-position="fixed">
+        <div data-theme="b" data-role="footer" data-position="fixed" data-tap-toggle="false">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
                     <li>

@@ -86,7 +86,7 @@ function delNote(id) {
 
 
 function addNote(id, content, addtime, adddate,obj) {
-    var note = $("<div class='notelist' id='" + id + "'><div class='notetext'>" + content + "</div><div class='notedate'>" + adddate + "   " + addtime + "</div><hr/><div>");
+    var note = $("<div class='notelist' id='" + id + "'><div class='notedate'>" + adddate + "   " + addtime + "</div><div class='notetext'>" + content + "</div></div>");
     $(obj).prepend(note);
     $(note).bind("taphold",
             function (event) {
